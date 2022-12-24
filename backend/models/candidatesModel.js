@@ -8,10 +8,12 @@ const candidateSchema = new Schema({
 
     id:{
         type:Number,
-        required:true
+        required:true,
+        unique: true,
+    
     },
 
-    load:{
+    number_of_votes:{
         type:Number,
         required :true
     }

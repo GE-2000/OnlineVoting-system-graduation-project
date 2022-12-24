@@ -25,7 +25,7 @@ const getCandidate = async(req,res)=>{
 
 //create new candidate
 const createCandidate = async(req,res)=>{
-    const{name,id,load}=req.body
+    const{name,id,number_of_votes}=req.body
     let emptyFields = []
 
   if (!name) {
@@ -34,8 +34,8 @@ const createCandidate = async(req,res)=>{
   if (!id) {
     emptyFields.push('id')
   }
-  if (!load) {
-    emptyFields.push('load')
+  if (!number_of_votes) {
+    emptyFields.push('number_of_votes')
   }
   if (emptyFields.length > 0) {
     return res.status(400).json({ error: 'Please fill in all fields', emptyFields })
@@ -45,7 +45,7 @@ const createCandidate = async(req,res)=>{
 
     //add doc to db
     try{
-        const candidate = await Candidate.create({name,id,load})
+        const candidate = await Candidate.create({name,id,number_of_votes})
         res.status(200).json(candidate)
     }catch(error){
         res.status(400).json({error:error.message})

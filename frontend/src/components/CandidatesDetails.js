@@ -23,7 +23,7 @@ const CandidateDetails = ({ candidate })=>{
         <div className="candidate-details">
             <h4>{candidate.name}</h4>
             <p><strong>ID:</strong>{candidate.id}</p>
-            <p><strong>Load:</strong>{candidate.load}</p>
+            <p><strong>Number Of Votes:</strong>{candidate.number_of_votes}</p>
             <p>{formatDistanceToNow(new Date(candidate.createdAt),{addSuffix:true})}</p>
             <span className="material-symbols-outlined" onClick={handleClick}>delete</span>
         </div>

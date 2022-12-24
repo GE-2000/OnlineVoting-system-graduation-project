@@ -7,14 +7,14 @@ const CandidateForm = () => {
 
   const [name, setName] = useState('')
   const [id, setId] = useState('')
-  const [load, setLoad] = useState('')
+  const [number_of_votes, setNumberOfVotes] = useState('')
   const [error, setError] = useState(null)
   const [emptyFields, setEmptyFields] = useState([])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    const candidate = {name,id, load}
+    const candidate = {name,id, number_of_votes}
     
     const response = await fetch('/api/candidates', {
       method: 'POST',
@@ -33,7 +33,7 @@ const CandidateForm = () => {
       setError(null)
       setName('')
       setId('')
-      setLoad('')
+      setNumberOfVotes('')
       setEmptyFields([])
       console.log('new candidate added:', json)
 
@@ -62,12 +62,12 @@ const CandidateForm = () => {
         className={emptyFields.includes('id') ? 'error' : ''}
       /> 
 
-      <label>Load:</label>
+      <label>Number of votes:</label>
       <input 
         type="number" 
-        onChange={(e) => setLoad(e.target.value)} 
-        value={load} 
-        className={emptyFields.includes('load') ? 'error' : ''}
+        onChange={(e) => setNumberOfVotes(e.target.value)} 
+        value={number_of_votes} 
+        className={emptyFields.includes('number_of_votes') ? 'error' : ''}
       />
 
       <button>Add Candidate</button>
