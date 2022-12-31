@@ -1,6 +1,4 @@
 import {useCandidatesContext} from "../hooks/useCandidatesContext"
-//date fns
-import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 
 
 const CandidateDetails = ({ candidate })=>{
